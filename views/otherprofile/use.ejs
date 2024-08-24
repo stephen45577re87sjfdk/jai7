@@ -453,7 +453,7 @@ buttonshare.addEventListener('click',()=>{
 let qr = document.querySelector('.qrimg');
 
 
-fetch('http://localhost:3000/qrcode?text='+window.location.href).then(a=>a.json()).then(g=>{
+fetch('https://jai7.vercel.app/qrcode?text='+window.location.href).then(a=>a.json()).then(g=>{
     qr.src = g.link;
 
 })

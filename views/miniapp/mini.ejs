@@ -154,7 +154,7 @@
     let tools = document.querySelector('.app-tools');
     let entertainment = document.querySelector('.entertainment')
 
-    fetch('http://localhost:3000/app-database').then(api=>api.json())
+    fetch('https://jai7.vercel.app/app-database').then(api=>api.json())
     .then(result=>{
         for (const ap in result) {
             tools.innerHTML += ` <a href="${result[ap].link}" class="a-app">
@@ -164,7 +164,7 @@
         }
     })
 
-    fetch('http://localhost:3000/entertainment-list').then(pi=>pi.json())
+    fetch('https://jai7.vercel.app/entertainment-list').then(pi=>pi.json())
     .then(answr=>{
         for (const a in answr) {
            entertainment.innerHTML += `<a href="${answr[a].link}" class="a-app">
