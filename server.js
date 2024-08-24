@@ -20,7 +20,6 @@ const firebaseConfig = {
 let divice = require('node-device-detector');
 
 app.set('view engine','ejs');
-app.set('views',__dirname+'/views')
 
 //who can use my api 
 app.use(cors({
@@ -84,21 +83,21 @@ app.get('/qrcode',(req,res)=>{
 
 app.get('/miniapp',(req,res)=>{
     res.render('miniapp/mini')
-});
+})
 
 app.get('/minigame',(req,res)=>{
     res.render('minigame/gmini')
-});
+})
 
 app.get('/scanner',(req,res)=>{
     res.render('scan-page')
-});
+})
 
 
 //how to send your file to fontend
 app.get('/app-database',(req,res)=>{
     res.sendFile(__dirname+'/appdatabase.json')
-});
+})
 
 app.get('/entertainment-list',(req,res)=>{
     res.sendFile(__dirname+'/entertainment.json')
