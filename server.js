@@ -20,6 +20,7 @@ const firebaseConfig = {
 let divice = require('node-device-detector');
 
 app.set('view engine','ejs');
+app.set('views',__dirname+'/views')
 
 //who can use my api 
 app.use(cors({
