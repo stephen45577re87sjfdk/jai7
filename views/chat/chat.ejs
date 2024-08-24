@@ -1,0 +1,316 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<style>
+    :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    body{
+        background: var(--bg);
+        margin: 0;
+    }
+    .main-chat{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        
+    }
+    .main-chat .list-chat{
+        display: flex;
+        width: 100%;
+    }
+    .main-chat .right-chat{
+        background: var(--bg);
+        border: 1px solid #ffffff93;
+        margin: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+
+    }
+    .main-chat .left-chat{
+        width: max-content;
+    }
+    .main-chat .right-chat nav{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    nav .left-pf{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+    .main-chat .right-chat img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .right-chat .chat-name{
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    .right-chat .chat-name h1{
+        margin: 0;
+        font-size: 23px;
+        color: var(--text);
+    }
+    .right-chat .chat-name span{
+        font-size: 14px;
+        margin-left: 10px;
+        color: var(--text);
+    }
+    .right-pf button{
+        border: none;
+        background: none;
+        font-size: 25px;
+        margin-left: 10px;
+        color: var(--text);
+    }
+    .massange-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+
+
+    }
+    .top{
+        display: flex;
+        flex-direction: column;
+        width: 98%;
+    }
+    .income{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin-top: 10px;
+    }
+    .massange-list .top .income img{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 3px;
+    }
+    .massange{
+        border: 1px solid #ffffff9b;
+        background: var(--bg);
+        border: 1px solid rgb(163, 163, 163);
+        max-width: 400px;
+        word-break: break-all;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        padding: 3px 10px;
+    }
+    .massange h1{
+        font-size: 23px;
+        margin: 2px 0;
+        color: var(--text);
+    }
+    .massange span{
+        font-size: 12px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .outcome{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-top: 10px;
+    }
+    .outcome .massange{
+        background: blue;
+        color: var(--bg);
+        border: 1px solid rgb(163, 163, 163);
+        max-width: 250px;
+        word-break: break-all;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 0px;
+        padding: 3px 10px;
+    }
+    .massange h1{
+        font-size: 23px;
+        margin: 2px 0;
+    }
+    .massange span{
+        font-size: 12px;
+        display: flex;
+        color: var(--text);
+        justify-content: flex-end;
+    }
+    .type-bar{
+        width: calc(100vw - 338px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg);
+        border: 1px solid #ffffff7e;
+
+        height: 50px;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+    }
+    .type-bar .image{
+        border: none;
+        background: none;
+        font-size: 30px;
+        color: var(--text);
+    }
+    .type-bar input{
+        width: 80%;
+        padding: 8px;
+        font-size: 16px;
+        outline: 1px solid var(--text);
+        outline-offset: 2px;
+        border: none;
+        border-radius: 8px;
+    }
+    .type-bar input:focus{
+        
+        outline: 1px solid gray;
+        outline-offset: 2px;
+    }
+    .type-bar .send{
+        border: none;
+        background: purple;
+        color: var(--text);
+        border-radius: 8px;
+        padding: 10px 10px;
+        font-size: 20px;
+        margin-right: 10px;
+        width: 100px;
+    }
+</style>
+
+<div class="main-chat">
+    <nav>
+        <%-include('../nav.ejs')%>
+    </nav>
+    <div class="list-chat">
+        <div class="left-chat">
+            <%-include('../addtool.ejs')%>
+        </div>
+        <div class="right-chat">
+            <nav>
+                <div class="left-pf">
+                    
+                    <img class="person-pf" src="" alt="">
+                    <div class="chat-name">
+                        <h1 class="person-name">Evan</h1>
+                        <span>Sai is typing...</span>
+                    </div>
+                </div>
+                <div class="right-pf">
+                    <button>
+                        <ion-icon name="ellipsis-vertical"></ion-icon>
+                    </button>
+                </div>
+            </nav>
+            <div class="massange-list">
+                <div class="top">
+                    
+                    
+                </div>
+                <div class="type-bar">
+                    <button class="image">
+                        <ion-icon name="image"></ion-icon>
+                    </button>
+                    <input class="typing" type="text" placeholder="type your massage...">
+                    <button class="send">
+                        send
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="socket.io/socket.io.js"></script>
+
+<script type="module">
+
+    let inp = document.querySelector('.typing');
+    let send = document.querySelector('.send');
+    let name = document.querySelector('.person-name')
+    let list = document.querySelector('.top');
+    let img = document.querySelector('.person-pf');
+
+
+    let sever = io();
+   
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+    authDomain: "i-media-2fe0e.firebaseapp.com",
+    databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+    projectId: "i-media-2fe0e",
+    storageBucket: "i-media-2fe0e.appspot.com",
+    messagingSenderId: "686405947489",
+    appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    name.innerText = user.displayName;
+    img.src = user.photoURL;
+   } else {
+
+  }
+});
+
+
+    send.addEventListener('click',()=>{
+        if (inp.value != '') {
+            sever.emit('sends',{
+                "name": name.textContent,
+                "text": inp.value,
+                "profile": img.src,
+            });
+            inp.value = '';
+        }
+    })
+    sever.on('sendsback',(ans)=>{
+        console.log(ans);
+        if (ans.name == name.textContent) {
+            list.innerHTML += `<div class="outcome">
+                        <div class="massange">
+                            <h1 class="out-massange">${ans.text}</h1>
+                            <span>${ans.name}</span>
+                        </div>
+                    </div>`;
+        }else{
+            list.innerHTML += `<div class="income">
+                        <img src="${ans.profile}" alt="">
+                        <div class="massange">
+                            <h1 class="in-massange">${ans.text}</h1>
+                            <span>${ans.name}</span>
+                        </div>
+                    </div>`;
+        }
+    })
+
+
+</script>

@@ -1,0 +1,140 @@
+<style>
+    body{
+        margin: 0;
+    }
+    .log-main{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+    .log-left{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff;
+    }
+    img{
+        object-fit: cover;
+        width: 60%;
+
+    }
+    .log-right{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #4b2071;
+        color: #fff;
+    }
+    .log-right h1{
+        font-size: 45px;
+        margin-bottom: 0;
+        margin-top: 100px;
+
+    }
+    .log-right p{
+        font-size: 20px;
+        margin: 3px;
+        margin-bottom: 30px;
+        animation: welcome 1s ease-in-out;
+    }
+    p .tittle{
+        color: darkviolet;
+        font-size: 23px;
+
+    }
+    @keyframes welcome{
+        from{
+            color: #eee;
+        }
+        to{
+            color: rebeccapurple;
+        }
+    }
+    .detail{
+        width: 80%;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail .check{
+        margin: 3px 0px;
+        margin-left: 40px;
+        margin-bottom: 30px;
+        color: palevioletred;
+    }
+    button{
+        border: none;
+        outline: 1.5px solid #fff;
+        outline-offset: 2px;
+        color: #fff;
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background: rgb(33, 138, 26);
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="log-main">
+    <div class="log-left">
+        <img src="IT.jpg" alt="">
+    </div>
+    <div class="log-right">
+    <h1>I-Media</h1>
+    <p>Welcome to program <span class="tittle">
+        I-Media.
+    </span></p>
+    <div class="detail">
+        <div class="check">
+            <li>Post on social</li>
+            <li>Scan add friend</li>
+            <li>Chat to stranger or firends</li>
+            <li>Program to play special game</li>
+            
+        </div>
+    </div>
+   <button class="Join">
+        Join with your Google (or) Emial
+    </button>
+    </div>
+</div>
+<script type="module">
+   
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+   import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+      authDomain: "i-media-2fe0e.firebaseapp.com",
+      databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+      projectId: "i-media-2fe0e",
+      storageBucket: "i-media-2fe0e.appspot.com",
+      messagingSenderId: "686405947489",
+      appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    let join = document.querySelector('.join');
+
+    join.addEventListener('click',()=>{
+        
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            window.location.href = '../';
+
+        }).catch((error) => {
+            console.log(error);
+
+        });
+    })
+
+  </script>

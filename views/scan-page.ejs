@@ -1,0 +1,57 @@
+<style>
+  
+    #result{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 450px;
+        border-radius: 8px;
+        box-shadow: 0 0  2px 0 gray;
+        margin: 0 auto;
+        margin-top: 5px;
+        display: none;
+    }
+    #result h1{
+        font-size: 25px;
+    }
+    #result p{
+        font-size: 20px;
+    }
+</style>
+<nav>
+    <%-include('nav.ejs')%>
+</nav>
+<div id="scaner"></div>
+<div id="result">
+    <h1>Your QR Code Result</h1>
+    <p></p>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+
+<script>
+    let sc = document.querySelector('#scaner');
+    let h1 = document.querySelector('#result');
+    let p = document.querySelector('#result p');
+    function onScanSuccess(decodedTexts, decodedResult){
+        console.log(decodedTexts + decodedResult);
+        if (decodedTexts.includes('http')) {
+            window.location.href = decodedTexts;
+        }else{
+            p.innerText = decodedTexts;
+            h1.style.display = 'flex';
+            sc.style.display = "none";
+        }
+        
+    }
+    function onScanFailure(error) {
+        console.log(error);
+    }
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+        "scaner",
+        { fps: 10, qrbox: 250 },
+        false
+    );
+    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+</script>

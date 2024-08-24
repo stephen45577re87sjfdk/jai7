@@ -1,0 +1,138 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+    :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    body{
+        margin: 0;
+    }
+    .main-tool{
+        margin-top: 5px;
+        width: 280px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        background: var(--bg);
+        height: calc(100vh - 69px);
+        border-right: 0.75px solid #ffffff7f;
+        position: sticky;
+        top: 78.5px;
+
+
+    }
+    .main-tool a{
+        text-decoration: none;
+        color: var(--text);
+    }
+    .main-tool .tool-list{
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 88%;
+        border-radius: 8px;
+        padding: 5px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        
+
+
+    }
+    .main-tool .tool-list ion-icon{
+        font-size: 25px;
+        color: gray;
+        margin: 0 5px;
+    }
+    .tool-list:hover{
+        background: #e4e4e4cb;
+    }
+
+    
+    .tool-list:hover  ion-icon{
+        color: #4b2071;
+    }
+    .main-tool .tool-list p{
+        font-size: 18px;
+        margin: 0 15px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: var(--text);
+    }
+    hr{
+        width: 90%;
+        background: linear-gradient(90deg,#eee,#4b2071,#eee);
+        height: 1.5px;
+        border: none;
+        border-radius: 10px;
+    }
+
+</style>
+
+<div class="main-tool">
+   
+   
+    <a class="tool-list " href="../scanner">
+        <ion-icon name="scan"></ion-icon>
+        <p>Scan</p>
+    </a>
+    <button class="tool-list mod" onclick="changemood()">
+        <ion-icon name="moon"></ion-icon>
+        <p>Dark</p>
+    </button>
+    
+    <a class="tool-list">
+        <ion-icon name="settings"></ion-icon>
+        <p>Setting</p>
+    </a> 
+    <a class="tool-list" href="../../miniapp">
+        <ion-icon name="cube"></ion-icon>
+        <p>Mini App</p>
+    </a>
+    <a class="tool-list" href="../../minigame">
+        <ion-icon name="game-controller"></ion-icon>
+        <p>Mini Games</p>
+    </a>
+    <hr>
+</div>
+
+<script>
+    let mod = document.querySelector('.mod');
+    
+    function mood(){
+        let gett = localStorage.getItem('takel');
+        if (!gett) {
+            localStorage.setItem('takel','light')
+        }else{
+            if(gett === 'light'){
+                document.documentElement.style.setProperty('--bg','#fff');
+                document.documentElement.style.setProperty('--text','#333');
+                mod.innerHTML = `<ion-icon name="moon"></ion-icon>
+        <p>Dark</p>`
+            }else{
+                document.documentElement.style.setProperty('--bg','#333');
+                document.documentElement.style.setProperty('--text','#fff');
+                mod.innerHTML = `<ion-icon name="moon"></ion-icon>
+        <p>Light</p>`
+            }
+        }
+
+    }
+    mood();
+
+    function changemood(){
+        let gett = localStorage.getItem('takel');
+        if(gett === 'light'){
+            localStorage.setItem('takel','dark');
+            mood();
+        }else{
+            localStorage.setItem('takel','light');
+            mood();
+        }
+    }
+
+</script>

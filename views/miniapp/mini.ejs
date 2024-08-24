@@ -1,0 +1,180 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+    
+    :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    body{
+        background: var(--bg);
+    }
+    .list-app{
+        width: 100%;
+        display: flex;
+    }
+    .list-app .left{
+        width: 26%;
+        margin: 0;
+    }
+    .list-app .right{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        background: var(--bg);        
+        border: 1px solid #ffffff7e;
+
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    .right h1{
+        font-size: 28px;
+        margin-left: 5px;
+        margin-top: 15px;
+        margin-bottom: 0;
+        color: var(--text);
+    }
+    .app-item{
+        display: flex;
+        flex-direction: column;
+        width: 97%;
+        margin-left: 14px;
+        background: var(--bg);
+        border-radius: 8px;
+        border: 1px solid #ffffff7e;
+
+        margin-top: 20px;
+    }
+    .app-item h1{
+        margin: 8px;
+        color: var(--text);
+    }
+    .line{
+        border: none;
+        width: 93%;
+        background: rgba(103, 102, 102, 0.463);
+        height: 1.5px;
+    }
+    .app-list{
+        display: flex;
+        align-items: center;
+        width: 98%;
+        background: var(--bg);
+        border-radius: 8px;
+        margin: 10px;
+        overflow: hidden;
+        overflow-x: scroll;
+
+    }
+    .app-list::-webkit-scrollbar{
+        
+        background: transparent;
+        height: 5px;
+       
+    }
+    .app-list::-webkit-scrollbar-thumb{
+        border-radius: 20px;
+    }
+
+    .a-app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: 80px;
+        max-width: 80px;
+        padding: 10px 0;
+        margin: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        border: 1px solid #ffffff80;
+    }
+    .a-app img{
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0px 0px 1px 0px gray;
+    }
+    .a-app p{
+        font-size: 20px;
+        margin: 4px 0;
+        color: var(--text);
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    .app-item:nth-child(3) .app-list::-webkit-scrollbar-thumb{
+        background: linear-gradient( to right, #eee, purple); 
+
+    }
+    .app-item:nth-child(4) .app-list::-webkit-scrollbar-thumb{
+        background: linear-gradient(to left, #eee,purple); 
+
+    }
+</style>
+
+<div class="mini-main">
+    <nav>
+        <%-include('../nav.ejs')%>
+    </nav>
+    <div class="list-app">
+        <div class="left">
+            <%-include('../addtool')%>
+        </div>
+        <div class="right">
+            <h1>Mini App </h1>
+            <hr class="line">
+            <div class="app-item">
+                <h1>Tools
+
+                </h1>
+                <div class="app-list app-tools">
+                   
+                </div>
+            </div>
+            <div class="app-item">
+                <h1>Entertainment & Economic
+
+                </h1>
+                <div class="app-list entertainment">
+                  
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    let tools = document.querySelector('.app-tools');
+    let entertainment = document.querySelector('.entertainment')
+
+    fetch('http://localhost:3000/app-database').then(api=>api.json())
+    .then(result=>{
+        for (const ap in result) {
+            tools.innerHTML += ` <a href="${result[ap].link}" class="a-app">
+                        <img src="${result[ap].img}" alt="">
+                        <p>${result[ap].name}</p>
+                    </a>`;
+        }
+    })
+
+    fetch('http://localhost:3000/entertainment-list').then(pi=>pi.json())
+    .then(answr=>{
+        for (const a in answr) {
+           entertainment.innerHTML += `<a href="${answr[a].link}" class="a-app">
+                        <img src="${answr[a].img}" alt="">
+                        <p>${answr[a].name}</p>
+                    </a>`;
+        }
+    })
+
+    let searc = 'hello#hi'
+    let re = searc.split('#')[0]+searc.split('#')[1]
+  console.log(re);
+</script>

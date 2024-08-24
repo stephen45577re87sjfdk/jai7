@@ -1,0 +1,463 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+    body{
+        margin: 0;
+        background: #eee;
+    }
+    .use-main{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .use-list{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+    }
+    .pro{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pro img{
+        height: 250px;
+        width: 950px;
+        object-fit: cover;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        object-position: center;
+    }
+    .pro .pro-mid{
+        display: flex;
+        justify-content: space-between;
+        width: 950px;
+        position: relative;
+        
+    }
+    .pro .pro-mid img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        left: 25px;
+        top: -70px;
+        border: 5px solid #fff;
+        outline: none;
+        background: #fff;
+    }
+    .pro .pro-mid .mid-name{
+        margin-left: 200px;
+        padding: 15px;
+    }
+    .pro .pro-mid .mid-name h1{
+        
+        margin: 0;
+        font-size: 40px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .pro .pro-mid .mid-name span{
+        color: rgb(73, 73, 73);
+        font-size: 16px;display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .pro .pro-mid .mid-name span p{
+        margin-left: 5px;
+    }
+
+    .pro .pro-mid .mid-qr{
+        display: flex;
+        align-items: center;
+        margin-right: 100px;
+        width: 150px;
+        justify-content: space-around;
+    }
+    .pro .pro-mid .mid-qr button{
+        border: none;
+        background: blue;
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    hr{
+        height: 0.75px;
+        width: 70%;
+        border: none;
+        background: #838383;
+        margin-bottom: 0;
+        
+    }
+    .bar-list{
+        display: flex;
+        align-items: center;
+        width: 70%;
+        margin: 5px;
+    }
+    .bar-list button{
+        border: none;
+        padding: 15px 25px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 8px;
+        background: none;
+    }
+    .bar-list button:hover{
+        background: #eee;
+    }
+    .our-post{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .our-information{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    .our-information .i-about{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
+    }
+    .our-information .about{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .our-information .about span{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+    .our-information .about p{
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    .map{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+        border-radius: 8px;
+    }
+    iframe{
+        width: 70%;
+        height: 700px;
+    }
+    .main-qr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.333);
+        backdrop-filter: blur(3px);
+        z-index: 3;
+        display: none;
+    }
+    .main-qr .scan-qr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #eee;
+        border-radius: 13px;
+        padding: 15px;
+        max-width: 450px;
+        width: 100%;
+    }
+    .main-qr .scan-qr h1{
+        font-size: 35px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .main-qr .scan-qr p{
+        font-size: 20px;
+        margin: 5px;
+    }
+
+    .main-qr .scan-qr img{
+        width: 230px;
+    }
+    .main-qr .clean{
+        font-size: 30px;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-top: 30px;
+    }
+    .main-qr .scan-qr .tip{
+        margin: 0px;
+        font-size: 17px;
+    }
+</style>
+
+<div class="use-main">
+    <nav>
+        <%-include('../nav.ejs')%>
+    </nav>
+    <div class="use-list">
+        <div class="pro">
+            <img class="img-cover" src="../shoe.jpg" alt="">
+            <div class="pro-mid">
+                <img class="user-img" src="" alt="">
+                <div class="mid-name">
+                    <h1 class="user-name"></h1>
+                    <span>Id : <p class="idpf"> <%- id%></p></span>
+                </div>
+                <div class="mid-qr">
+                    <button class="qr">
+                        <ion-icon name="qr-code"></ion-icon>
+                    </button>
+                    <button class="sh">
+                        <ion-icon name="arrow-redo"></ion-icon>
+                    </button>
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="bar-list">
+                <button class="user-post">
+                    Post
+                </button>
+                <button class="user-about">
+                    About
+                </button>
+                <button class="user-location">
+                    Location
+                </button>
+        </div>
+        
+        </div>
+    </div>
+    <div class="our-post">
+        <%-include('../our-post/yourpost.ejs')%>
+    </div>
+    <div class="our-information">
+       <div class="i-about">
+            <h1>Information</h1>
+            <div class="about">
+                <span>Name  :</span>
+                <p class="user-name2"></p>
+            </div>
+            <div class="about">
+                <span>Phone num  :</span>
+                <p class="phonesnm"></p>
+            </div>
+            <div class="about">
+                <span>Type  :</span>
+                <p>Male</p>
+            </div>
+            <div class="about">
+                <span>Email  :</span>
+                <p class="user-email"></p>
+            </div>
+            <div class="about">
+                <span>CreationTime  :</span>
+                <p class="create"></p>
+            </div> 
+            <div class="about">
+                <span>LastLogin  :</span>
+                <p class="lastlog"></p>
+            </div>
+            <div class="about">
+                <span>Device  :</span>
+                <p class="device-name"></p>
+            </div>
+       </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56473.121968608604!2d97.63316224555076!3d23.82429056813164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37320415115ef4a3%3A0xe44e44ef36137299!2sNamhkam!5e0!3m2!1sen!2smm!4v1722657522118!5m2!1sen!2smm" frameborder="0"></iframe>
+
+    </div>
+</div>
+<div class="main-qr">
+    <div class="scan-qr">
+        <h1 class="nameqr">jai's QR </h1>
+        
+
+        <img class="qrimg" src="" alt="">
+        <div class="tip">
+            <ol>
+                <li>Open your camera.</li>
+                <li>Scan QR to view your profile.</li>
+            </ol>
+        </div>
+    </div>
+    <button class="clean">
+        <ion-icon name="close"></ion-icon>
+    </button>
+</div>
+<script>
+    let post = document.querySelector('.our-post');
+    let about = document.querySelector('.our-information');
+    let map = document.querySelector('.map');
+
+    let userposts = document.querySelector('.user-post');
+    let userabout = document.querySelector('.user-about');
+    let userlocaation = document.querySelector('.user-location');
+
+    let buttonshare = document.querySelector('.sh');
+
+    userposts.addEventListener('click',()=>{
+        about.style.display = 'none';
+        map.style.display = 'none';
+        post.style.display = 'flex';
+    });
+
+    userabout.addEventListener('click',()=>{
+        about.style.display = 'flex';
+        map.style.display = 'none';
+        post.style.display = 'none';
+    });
+
+    userlocaation.addEventListener('click',()=>{
+        about.style.display = '';
+        map.style.display = 'flex';
+        post.style.display = 'none';
+    });
+
+    let caner = document.querySelector('.clean');
+    let mainqr = document.querySelector('.main-qr');
+    let butqr = document.querySelector('.qr');
+
+    butqr.addEventListener('click',()=>{
+        mainqr.style.display = 'flex';
+    })
+
+    caner.addEventListener('click',()=>{
+        
+        mainqr.style.display = 'none';
+    })
+
+</script>
+
+<script type="module" >
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getDatabase,ref , onValue } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+    authDomain: "i-media-2fe0e.firebaseapp.com",
+    databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+    projectId: "i-media-2fe0e",
+    storageBucket: "i-media-2fe0e.appspot.com",
+    messagingSenderId: "686405947489",
+    appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  let name = document.querySelector('.user-name');
+  let names = document.querySelector('.user-name2');
+  let userpf = document.querySelector('.user-img');
+  let phonesnum = document.querySelector('.phonesnm');
+  let id = document.querySelector('.idpf');
+  let email = document.querySelector('.user-email');
+  let lastlogin = document.querySelector('.lastlog');
+  let creation = document.querySelector('.create');
+  let device = document.querySelector('.device-name');
+    let al = document.querySelector('.nameqr');
+  let scorll = document.querySelector('.list-scroll');
+
+  const starCountRef = ref(database, 'users/' + '<%-id%>' );
+    onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  console.log(data);
+  al.innerText = data.Name + "'s QR";
+  name.innerText = data.Name;
+  names.innerText = data.Name;
+  userpf.innerText = data.profileIMG;
+  id.innerText = data.ID;
+  phonesnum.innerText = data.phonenum;
+  email.innerText = data.Email;
+  lastlogin.innerText = data.LastLoginTime;
+  creation.innerText = data.CreationTime;
+  device.innerText = data.devicename + data.deviceversion + data.deviceplatform;
+  
+  const starCountRef = ref(database, 'post/' );
+    onValue(starCountRef, (snapshot2) => {
+  const data2 = snapshot2.val()
+
+  
+  
+  console.log(data2);
+  for (const io in data2) {
+    if (data2[io].realID == data.realid) {
+            scorll.innerHTML += `<div class="post-list">
+            <div class="post-profile">
+                <a href="">
+                    <img src="${data2[io].profile}" alt="">
+                </a>
+                <h1>${data2[io].userName}
+                    <span class="emoji">${data2[io].emoji}</span>
+                </h1>
+                <p>Follow?</p>
+            
+            </div>
+            <p>${data2[io].text}</p>
+            <div class="post-item">
+                <img src="${data2[io].post}" alt="">    
+            </div>
+            <div class="like-bar">
+                <div class="like">
+                    <ion-icon name="heart-outline"></ion-icon>
+                    <p>1.1k</p>
+                </div> 
+                <div class="like">
+                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    <p>1.1k</p>
+                </div>
+            </div>
+        </div>` 
+    }
+    
+  }
+   
+    });
+});
+
+buttonshare.addEventListener('click',()=>{
+    navigator.share({
+        
+        url:window.location.href,
+        title: name.innerText+"'s profile share"
+    })
+})
+
+let qr = document.querySelector('.qrimg');
+
+
+fetch('http://localhost:3000/qrcode?text='+window.location.href).then(a=>a.json()).then(g=>{
+    qr.src = g.link;
+
+})
+
+//qr.src = 'http://localhost:3000/qrcode?text=' + window.location.href;
+
+</script>

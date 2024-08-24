@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Fackbook",
+        "img": "https://freepnglogo.com/images/all_img/facebook-circle-logo-png.png",
+        "link": "https://www.facebook.com/"
+    },
+    {
+        "name": "Massenger",
+        "img": "https://messengernews.fb.com/wp-content/themes/messenger/images/messenger_logo_1200x630.jpg",
+        "link": "https://www.messenger.com/"
+    },
+    {
+        "name": "Treading",
+        "img": "https://i.vimeocdn.com/video/1229271364-d48539e9ab8a8a14cbbb07cb06d4ae37da1640c1a0ac10a9be74ac7abde97366-d",
+        "link": "https://www.tradingview.com/"
+    },
+    {
+        "name":"Tiktok",
+        "img":"https://seeklogo.com/images/T/tiktok-app-icon-logo-0F5AD7AE01-seeklogo.com.png",
+        "link":"https://www.tiktok.com/"
+    },
+    {
+        "name":"Bigo",
+        "img":"https://i.pinimg.com/originals/19/35/f9/1935f99ae382f0ddcdc61fab71e46e77.png",
+        "link":"https://www.bigo.tv/"
+    },
+    {
+        "name":"Paypal",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png",
+        "link":"https://www.paypal.com/"
+    },
+    {
+        "name":"Instragram",
+        "img":"https://c.files.bbci.co.uk/C5CC/production/_89663605_instagram_logo_976.jpg",
+        "link":"https://www.instagram.com/"
+    },
+    {
+        "name":"Youtube",
+        "img":"https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+        "link":"https://www.youtube.com/"
+    },
+    {
+        "name":"Alibaba",
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmS2g5OohnFLndn_s0C0ZJ8vAT39xH6eAbOw&s",
+        "link":"https://www.alibaba.com/"
+    },
+    {
+        "name":"Taobao",
+        "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG5bfq0EoeKCiIWKwFkkyfjYSF50mDhuEamQ&s",
+        "link":"https://world.taobao.com/"
+    }
+]

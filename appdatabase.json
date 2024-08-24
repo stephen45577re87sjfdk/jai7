@@ -1,0 +1,49 @@
+[
+    {
+        "name":"Map",
+        "img":"https://i.pinimg.com/736x/66/1e/98/661e98a8e38f681575da93d0a1c3f4fc.jpg",
+        "link":"https://www.google.com/maps/"
+    },
+    {
+        "name":"Email",
+        "img":"https://thumbs.dreamstime.com/b/%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C-201003176.jpg",
+        "link":"https://mail.google.com/"
+    },
+    {
+        "name":"Calendar",
+        "img":"https://ssl.gstatic.com/calendar/images/dynamiclogo_2020q4/calendar_10_2x.png",
+        "link":"https://calendar.google.com/"
+    },
+    {
+        "name":"Play Store",
+        "img":"https://logowik.com/content/uploads/images/google-play-store4701.jpg",
+        "link":"https://play.google.com/"
+    },
+    {
+        "name":"APK pure",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/APKPure_Logo.jpg/600px-APKPure_Logo.jpg",
+        "link":"https://apkpure.net/"
+    },
+    {
+        "name":"Zoom Earth",
+        "img":"https://zoom.earth/assets/images/icon-100.7.jpg",
+        "link":"https://zoom.earth/"
+    },
+    {
+        "name":"translate",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/2048px-Google_Translate_logo.svg.png",
+        "link":"https://translate.google.com/?sl=auto&tl=en&op=translate"
+    },
+    {
+        "name":"Find my phone",
+        "img":"https://uttrakhandcoldandcuttings.co.in/images/Find-My-Device.png",
+        "link":"https://www.google.com/android/find/"
+    },
+    
+    {
+        "name":"Calculator",
+        "img":"https://static-00.iconduck.com/assets.00/google-calculator-icon-501x512-jna94jxh.png",
+        "link":"https://calculator.apps.chrome/"
+    }
+     
+]

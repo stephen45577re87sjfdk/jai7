@@ -1,0 +1,167 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<style>
+     :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    .list-scroll{
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .post-list{
+        background: var(--bg);
+        width: 700px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+    .post-list .post-profile{
+        display: flex;
+        align-items: center;
+    }
+    .post-list .post-profile p{
+        margin: 0 20px;
+        color: blue;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .post-list .post-profile img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 5px 20px;
+    }
+    .post-list .post-profile h1{
+        color: var(--text);
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .post-list .post-profile span{
+        font-size: 13px;
+        color: var(--text);
+        margin: 0;
+        margin-top: -3px;
+        font-style: italic;
+    }
+
+    .post-list p{
+        max-width: 430px;
+        margin-left: 30px;
+        margin-top: 0;
+        word-break: break-all;
+        white-space: swarp;
+
+    }
+
+    .post-list .post-item img{
+        width: 95%;
+        height: 350px;
+        object-fit: cover;
+    }
+    .post-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .like-bar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+    }
+    .like-bar .like{
+        display: flex;
+        align-items: center;
+        width: 30%;
+        justify-content: center;
+        margin: 10px;
+        padding: 5px;
+    }
+    .like:hover{
+        background: #eee;
+        border-radius: 20px;
+
+    }
+
+    .like:hover ion-icon{
+        color: red;
+    }
+    .like-bar .like ion-icon{
+        font-size: 25px;
+        margin-right: 10px;
+    }
+
+    .like-bar .like p{
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .add-post{
+        width: 95%;
+        padding: 8px 10px;
+        margin: 8px;
+        background: #fff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .add-post img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 5px 10px; 
+    }
+    .add-post input{
+        width: 75%;
+        padding: 8px;
+        border: none;
+        outline: 1.5px solid #000;
+        outline-offset: 2px;
+        border-radius: 8px;
+    }
+    .add-post ion-icon{
+        font-size: 28px;
+        margin: 10px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="list-scroll">
+   
+    
+    
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+    authDomain: "i-media-2fe0e.firebaseapp.com",
+    databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+    projectId: "i-media-2fe0e",
+    storageBucket: "i-media-2fe0e.appspot.com",
+    messagingSenderId: "686405947489",
+    appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase();
+
+</script>
+   

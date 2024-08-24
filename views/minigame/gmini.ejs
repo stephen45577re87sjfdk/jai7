@@ -1,0 +1,139 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+    body{
+        background: #eee;
+    }
+    .list-app{
+        width: 100%;
+        display: flex;
+    }
+    .list-app .left{
+        width: 26%;
+        margin: 0;
+    }
+    .list-app .right{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        background: #fff;
+        overflow: hidden;
+        border-radius: 5px;
+    }
+    .right h1{
+        font-size: 28px;
+        margin-left: 5px;
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+    .app-item{
+        display: flex;
+        flex-direction: column;
+        width: 97%;
+        margin-left: 14px;
+        background: #eee;
+        border-radius: 8px;
+        
+        margin-top: 20px;
+    }
+    .app-item h1{
+        margin: 8px;
+    }
+    .line{
+        border: none;
+        width: 93%;
+        background: rgba(103, 102, 102, 0.463);
+        height: 1.5px;
+    }
+    .app-list{
+        display: flex;
+        align-items: center;
+        width: 98%;
+        background: #fff;
+        border-radius: 8px;
+        margin: 10px;
+        overflow: hidden;
+        overflow-x: scroll;
+
+    }
+    .app-list::-webkit-scrollbar{
+        
+        background: transparent;
+        height: 5px;
+       
+    }
+    .app-list::-webkit-scrollbar-thumb{
+        border-radius: 20px;
+    }
+
+    .a-app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 80px;
+        max-width: 80px;
+        padding: 10px 0;
+        margin: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .a-app img{
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0px 0px 1px 0px gray;
+    }
+    .a-app p{
+        font-size: 20px;
+        margin: 4px 0;
+        color: rgb(60, 60, 60);
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    .app-item:nth-child(3) .app-list::-webkit-scrollbar-thumb{
+        background: linear-gradient( to right, #eee, purple); 
+
+    }
+    .app-item:nth-child(4) .app-list::-webkit-scrollbar-thumb{
+        background: linear-gradient(to left, #eee,purple); 
+
+    }
+</style>
+
+<div class="mini-main">
+    <nav>
+        <%-include('../nav.ejs')%>
+    </nav>
+    <div class="list-app">
+        <div class="left">
+            <%-include('../addtool')%>
+        </div>
+        <div class="right">
+            <h1>Mini Game </h1>
+            <hr class="line">
+            <div class="app-item">
+                <h1>Tools
+
+                </h1>
+                <div class="app-list app-tools">
+                   
+                </div>
+            </div>
+            <div class="app-item">
+                <h1>Entertainment & Economic
+
+                </h1>
+                <div class="app-list entertainment">
+                  
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

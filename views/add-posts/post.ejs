@@ -1,0 +1,654 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+     :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    body {
+        background: var(--bg);
+        position: relative;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .main-profile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .apptool {
+        display: flex;
+        width: 100%;
+
+    }
+
+    .apptool .left {
+        width: 22%;        
+
+    }
+
+    .apptool .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 40%;
+    }
+
+    .apptool .new-post {
+        width: 38%;
+        background: var(--bg);
+        background: url('https://i.pinimg.com/originals/06/c4/a3/06c4a3810ba2ebda70539e844ecdaec8.jpg');
+        height: max-content;
+        box-shadow: 1px 2px 3px 4px #a8a8a8c5;
+    }
+
+    .apptool .right .first {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        background: var(--bg);
+        margin-top: 15px;
+        border-radius: 8px;
+
+        position: sticky;
+        top: 95px;
+        left: 300px;        
+        border: 1px solid #ffffff82;
+
+    }
+
+    .apptool .right .first .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        margin: 10px;
+        
+    }
+
+    .apptool .right .first .top .pfname {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .apptool .right .first .top .pfname img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .main-id {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-id button {
+        background: none;
+        border: none;
+    }
+
+    .i-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .apptool .right .first .top .pfname .main-id h1 {
+        margin: 0 20px;
+        font-size: 25px;
+        color: var(--text);
+    }
+
+    .id {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .id .i-id ion-icon {
+        color: var(--text);
+        margin-left: 20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .main-id .id p {
+        margin: 0 30px;
+        font-size: 13px;
+        color: var(--text);
+    }
+
+    .apptool .right .first .dot {
+        font-size: 25px;
+        color: var(--text);
+    }
+
+    .pf-bio {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .pf-bio p {
+        width: 85%;
+        word-break: break-all;
+        margin: 4px;
+        white-space: wrap;
+        color: var(--text);
+        font-style: italic;
+    }
+
+    .imformation {
+        display: flex;
+        align-self: center;
+        justify-content: space-between;
+        width: 80%;
+        font-size: 17px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .imformation p {
+        margin: 0;
+        color: var(--text);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .imformation a {
+        text-decoration: none;
+
+    }
+
+    .line {
+        width: 90%;
+        background: linear-gradient(90deg, #eee, #4b2071, #eee);
+        height: 1px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .exit {
+        margin-left: 310px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        border: 1.5px solid #646464e2;
+        padding: 5px 9px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #7F5AD8;
+        background: none;
+        justify-content: flex-end;
+        border-radius: 10px;
+    }
+
+    .exit ion-icon {
+        font-size: 24px;
+        color: var(--text);
+        margin-bottom: 5px;
+        margin-left: 10px;
+    }
+
+    .change {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg);
+        backdrop-filter: blur(3px);
+        z-index: 3;
+        display: none;
+    }
+
+    .change button {
+        border: none;
+        padding: 10px;
+        font-size: 25px;
+        border-radius: 50%;
+        margin-top: 30px;
+        background: #eee;
+    }
+
+    .change .ch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--bg);
+        border: 1px solid #ffffff87;
+        border-radius: 13px;
+        padding: 15px;
+    }
+
+    .change .ch .ch-information {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        width: 90%;
+        margin-left: 15px;
+
+    }
+
+    .change .ch .ch-information p {
+        margin: 0;
+        margin-left: -10px;
+        color: var(--text);
+        font-size: 16px;
+        z-index: 2;
+    }
+
+    .change .ch h1 {
+        margin: 0;
+        color: var(--text);
+        margin-bottom: 5px;
+    }
+
+    .change .ch input {
+        margin-top: 5px;
+        width: 90%;
+        padding: 8px;
+        font-size: 15px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background: #eee;
+    }
+
+    .change .ch button {
+        border: none;
+        color: var(--bg);
+        font-size: 18px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background: rgb(33, 138, 26);
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+        display: flex;
+    }
+
+    .new-post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        margin-right: 15px;
+        padding: 40px 10px;
+        border-radius: 8px;
+    }
+
+    .new-post h1 {
+        margin: 0;
+        font-size: 35px;
+    }
+
+    .new-post input {
+        color: var(--text);
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        padding: 10px 5px;
+        width: 80%;
+        background: transparent;
+        outline: 1.75px solid gray;
+        outline-offset: 2px;
+
+        margin-top: 30px;
+    }
+
+    .new-post input:focus {
+        outline-color: var(--text);
+        background: #d9d9d932;
+        backdrop-filter: blur(5px);
+    }
+
+    .new-post button {
+        margin-top: 30px;
+        border: none;
+        padding: 12px;
+        border: none;
+        font-size: 18px;
+        background: rgb(26, 146, 26);
+        width: 130px;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .new-post .emoji {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .new-post .emoji select {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+        border: none;
+        padding: 8px;
+        font-size: 18px;
+        border-radius: 8px;
+        background: lightskyblue;
+        color: #fff;
+        outline: none;
+        width: 120px;
+    }
+
+    .new-post .image {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        cursor: pointer;
+    }
+    .new-post .image ion-icon{
+        color: green;
+        font-size: 30px;
+    }
+    .new-post .image p{
+        font-size: 18px;
+        margin-left: 10px;
+        color: rgb(58, 58, 58);
+    }
+    .locaimg{
+        display: none;
+    }
+    .im{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="main-profile">
+    <nav>
+        <%-include('../nav.ejs')%>
+    </nav>
+    <div class="apptool">
+        <div class="left">
+            <%-include('../addtool.ejs')%>
+        </div>
+        <div class="right">
+            <div class="first">
+                <div class="top">
+                    <div class="pfname">
+
+                        <img class="pf-img" src="" alt="">
+                        <div class="main-id">
+                            <div class="i-name">
+
+                                <h1 class="pf-name"></h1>
+                                <button class="dot">
+                                    <ion-icon class="dot" name="ellipsis-vertical-sharp"></ion-icon>
+
+                                </button>
+                            </div>
+                            <div class="id">
+                                <p>Id:
+                                    <span class="pf-id"></span>
+                                </p>
+                                <div class="i-id">
+                                    <ion-icon name="copy"></ion-icon>
+                                    <ion-icon name="arrow-redo"></ion-icon>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="pf-bio">
+                    <p class="bio-pf"></p>
+                </div>
+                <hr class="line">
+                <div class="imformation">
+                    <p>Location</p>
+                    <a href="" class="location-pf"> </a>
+                </div>
+                <div class="imformation">
+                    <p>Email</p>
+                    <a href="" class="email-pf"> </a>
+                </div>
+                <div class="imformation">
+                    <p>Phone Number</p>
+                    <a href="" class="num-pf"> </a>
+                </div>
+                <div class="imformation">
+                    <p>Follower</p>
+                    <span class="follower-pf"></span>
+                </div>
+                <button class="exit">
+                    Log out
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+        <div class="new-post">
+            <h1>New Post</h1>
+            <input class="post-inp" type="text" placeholder="Img link here...">
+            <input class="inp" type="text" placeholder="Put what's in you Memory?">
+            <div class="image">
+                <ion-icon name="images-outline"></ion-icon>
+                <p>
+                    Photo/img
+                </p>
+            </div>
+            <img class="im" src="../shoe.jpg" alt="">
+            <input type="file" class="locaimg" accept="image/*">
+            <div class="emoji">
+                <select class="emo">
+                    <option value="happy 😀">happy 😀</option>
+                    <option value="falling in love 👨‍❤️‍💋‍👨">falling in love 👨‍❤️‍💋‍👨</option>
+                    <option value="family 👨‍👩‍👦">family 👨‍👩‍👦</option>
+                    <option value="beae 👶">beae 👶</option>
+                    <option value="food 🍽">food 🍽</option>
+                    <option value="laugh 🤣">laugh 🤣</option>
+                </select>
+            </div> 
+            <button class="posts">Post</button>
+
+        </div>
+        
+    </div>
+</div>
+<div class="change">
+    <div class="ch">
+        <h1>Change your information</h1>
+        <div class="ch-information">
+            <p>Location</p>
+            <input class="loca" type="text" placeholder="Type change...">
+        </div>
+        <div class="ch-information">
+            <p>ID</p>
+            <input class="pid" type="number" placeholder="Type id...">
+        </div>
+        <div class="ch-information">
+            <p>Phone num</p>
+            <input class="phone" type="number" placeholder="Type num...">
+        </div>
+        <button class="emit">
+            Change
+        </button>
+    </div>
+    <button class="cross">
+        <ion-icon name="close"></ion-icon>
+    </button>
+</div>
+
+<script>
+    let image = document.querySelector('.image');
+    let inpfile = document.querySelector('.locaimg');
+    let im = document.querySelector('.im');
+    let reader = new FileReader();
+    let ii;
+
+    image.addEventListener('click',()=>{
+        inpfile.click()
+    })
+
+reader.onload=(e)=>{
+    im.src = e.target.result
+}
+
+    inpfile.addEventListener('change',(e)=>{
+        image.style.display = 'none';
+        im.style.display = 'flex';
+        ii = e.target.files[0];
+        let img = e.target.files[0];
+        reader.readAsDataURL(img);
+    })
+</script>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, signOut, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+    import { getStorage, ref as fref, uploadBytes ,getDownloadURL} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+        authDomain: "i-media-2fe0e.firebaseapp.com",
+        databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+        projectId: "i-media-2fe0e",
+        storageBucket: "i-media-2fe0e.appspot.com",
+        messagingSenderId: "686405947489",
+        appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+    const storage = getStorage(app);
+
+
+    let img = document.querySelector('.pf-img');
+    let name = document.querySelector('.pf-name');
+    let bio = document.querySelector('.bio-pf');
+    let id = document.querySelector('.pf-id');
+    let location = document.querySelector('.location-pf');
+    let email = document.querySelector('.email-pf');
+    let phone = document.querySelector('.num-pf');
+    let follower = document.querySelector('.follower-pf');
+
+    let dot = document.querySelector('.dot');
+    let change = document.querySelector('.change');
+    let cross = document.querySelector('.cross');
+    let emit = document.querySelector('.emit');
+    let loca = document.querySelector('.loca');
+    let phonenum = document.querySelector('.phone');
+    let ID = document.querySelector('.pid');
+    let me = '';
+    let exit = document.querySelector('.exit');
+
+    //add-post
+    let posts = document.querySelector('.posts');
+    let inp = document.querySelector('.inp');
+    let i = document.querySelector('.post-inp');
+    let emoji = document.querySelector('.emo');
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log(user);
+            img.src = user.photoURL;
+            name.innerText = user.displayName;
+            email.innerText = user.email;
+            me = user;
+
+            const starCountRef = ref(database, 'users/' + user.uid);
+            onValue(starCountRef, (snapshot) => {
+                const data = snapshot.val();
+                console.log(data);
+                phone.innerText = data.phonenum;
+                location.innerText = data.Location;
+                id.innerText = data.ID;
+
+            });
+        } else {
+            window.location.href = '../login';
+        }
+    });
+    dot.addEventListener('click', () => {
+        change.style.display = 'flex';
+    })
+    cross.addEventListener('click', () => {
+        change.style.display = 'none';
+    })
+    emit.addEventListener('click', () => {
+        if (phonenum.value.length >= 11) {
+            if (ID.value.length >= 9) {
+                set(ref(database, 'users/' + me.uid), {
+                    Location: loca.value,
+                    phonenum: phonenum.value,
+                    ID: ID.value,
+                });
+                change.style.display = 'none';
+
+            }
+        }
+
+    })
+
+
+    exit.addEventListener('click', () => {
+        signOut(auth).then(() => {
+            window.location.href = '../login'
+        }).catch((error) => {
+            console.log(error);
+        });
+
+    })
+
+    let imgf = document.querySelector(".im");
+    //add-post
+    posts.addEventListener('click', () => {
+        let ids = Math.floor(Math.random() * 999999999)
+
+        const storageRef = fref(storage, 'post-list/' + ids);
+
+        uploadBytes(storageRef,ii).then((snapshot) => {
+        
+            const starsRef = fref(storage, 'post-list/' + ids);
+
+            getDownloadURL(starsRef)
+            .then((url) => {
+                console.log(url);
+                set(ref(database, 'post/' + ids), {
+                    emoji: emoji.value,
+                    imgURL: i.value,
+                    text: inp.value,
+                    profile: me.photoURL,
+                    userName: me.displayName,
+                    realID: me.uid,
+                    post: url
+                });
+                window.location.href = '../'
+            })
+        });
+
+       
+    })
+
+    
+
+</script>

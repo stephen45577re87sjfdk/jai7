@@ -1,0 +1,95 @@
+<style>
+        :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    body{
+        margin: 0;
+        background: var(--bg);
+    }
+    .mian{
+        display: flex;
+        flex-direction: column;
+    }
+    .main .main-list{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+</style>
+<div class="main">
+    <nav>
+        <%-include('nav.ejs')%>
+    </nav>
+    <div class="main-list">
+            <%-include('addtool.ejs',)%>
+
+        <div class="mid">
+            
+            <%-include('list.ejs')%>
+
+        </div>
+        <div class="right">
+            <%-include('miniprofile.ejs')%>
+        </div>
+    </div>
+    
+</div>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+    import { getDatabase , ref , set, onValue } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+    
+        const firebaseConfig = {
+          apiKey: "AIzaSyBP0-AqMw14NaluT4XGQOU1f4Mw99xcID4",
+          authDomain: "i-media-2fe0e.firebaseapp.com",
+          databaseURL: "https://i-media-2fe0e-default-rtdb.firebaseio.com",
+          projectId: "i-media-2fe0e",
+          storageBucket: "i-media-2fe0e.appspot.com",
+          messagingSenderId: "686405947489",
+          appId: "1:686405947489:web:2dd2ba13c8b0a8afb6da20"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase();
+
+        //from miniprofile code
+        let profile = document.querySelector('.linkpf');
+        let minipf = document.querySelector(".mini-pf");
+        let name = document.querySelector('.mini-name');
+        let miniloca = document.querySelector('.mini-loca')
+
+        let post = document.querySelector('.add-pf');
+        
+        //list post list bar
+        let som = document.querySelector('.som');
+        let nee = document.querySelector('.nee');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                post.src = user.photoURL;
+                profile.src = user.photoURL;
+                minipf.src = user.photoURL;
+                name.innerText = user.displayName;
+                const starCountRef = ref(database, 'users/' + user.uid );
+                    onValue(starCountRef, (snapshot) => {
+                    const data = snapshot.val();
+                    
+                    miniloca.innerText = data.Location;
+
+                });
+            } else {
+                window.location.href = '/login';
+            }
+        });
+        minipf.addEventListener('click',()=>{
+            window.location.href = 'profile'
+        })
+        nee.addEventListener('click',()=>{
+            window.location.href = 'add-posts'
+        })
+    </script>

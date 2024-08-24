@@ -1,0 +1,107 @@
+<style>
+    :root{
+        --bg: #fff;
+        --text: #333;
+    }
+    .mini-main{
+        width: 300px;
+        background: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        margin-top: 10px;
+        border: 0.75px solid #fff;
+    }
+    .mini-main img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 10px;
+        
+    }
+    .mini-main h1{
+        margin: 0;
+        font-size: 20px;
+        color: var(--text);
+    }
+    .bio{
+        
+        width: 300px;
+        max-width: 250px;
+        margin: 3px;
+        word-break: break-all;
+        white-space: warp;
+        background: none;
+        text-align: center;
+        color: var(--text);
+    }
+    .viewover{
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        justify-content: space-between;
+        padding: 3px;
+        width: 90%;
+        margin: 2px;
+
+    }
+    .viewover:hover{
+        background: #f7f7f7d7;
+        border-radius: 8px;
+    }
+    .viewover p{
+        margin: 5px;
+        color: var(--text);
+    }
+    .viewover span{
+        display: flex;
+        align-items: center;
+        color: var(--text);
+    }
+    .viewover span ion-icon{
+        margin-left: 15px;
+        color: var(--text);
+    }
+    .seemore{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: rgb(101, 101, 101);
+    }
+    .seemore p{
+        margin: 0;
+        font-size: 15px;
+    }
+
+</style>
+
+<div class="mini-main">
+        <img class="mini-pf" src="" alt="">
+        <h1 class="mini-name"></h1>
+        <p class="bio"></p>
+        <a class="viewover">
+            <p>My locations</p>
+            <span>
+                
+                <span class="mini-loca"></span>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+
+            </span>
+        </a>
+        <a class="viewover">
+            <p>My post</p>
+            <span> 
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                
+            </span>
+        </a>
+        <a class="seemore" href="profile/">
+            <p>see more</p>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+
+        </a>
+</div>
